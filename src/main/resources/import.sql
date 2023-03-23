@@ -6,3 +6,5 @@ INSERT INTO venda (data) VALUES ('2022-01-01');
 
 
 INSERT INTO item_venda (quantidade,produto_id, venda_id) VALUES (1, 2, 1);
+INSERT INTO item_venda (quantidade,produto_id, venda_id) VALUES (3, 3, 1);
+

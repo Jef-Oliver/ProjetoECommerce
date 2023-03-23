@@ -9,7 +9,7 @@
 <body class="container">
 <table class="table" border="1">
     <thead>
-    <h1>Carrinho de compras</h1>
+    <h1>Produtos</h1>
     <tr>
         <th>Id</th>
         <th>Descrição</th>
@@ -17,16 +17,11 @@
     </tr>
     </thead>
     <tr th:each="p : ${produtos}">
-
         <td th:text="${p.id}"></td>
         <td th:text="${p.descricao}"></td>
         <td th:text="${p.valor}"></td>
-
-        <td><a th:href="@{/produtos/edit/{id}(id=${p.id})}">Editar</a></td>
-        <td><a onclick="return window.confirm('Tem certeza que deseja excluir este registro?')"
-               th:href="@{/produtos/remove/{id}(id=${p.id})}">Excluir</a></td>
     </tr>
 </table>
-<a th:href="@{/produtos/form}">Adicionar</a>
+<a th:href="@{/produtos/index}">Voltar para home</a>
 </body>
 </html>

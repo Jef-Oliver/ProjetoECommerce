@@ -8,30 +8,31 @@ import org.springframework.stereotype.Repository;
 
 import java.util.List;
 
+//faz operacoes no banco de dados
 @Repository
-public class PessoasRepository {
+public class ProdutosRepository {
     @PersistenceContext
     private EntityManager em; //responsável por gerenciar entidades, persistir, pesquisar e excluir objetos do bd
 
-    public void save(Produto produto){
+    public void save(Produto produto) {
         em.persist(produto);
     }
 
-    public Produto pessoa(Long id){
+    public Produto list(Long id) {
         return em.find(Produto.class, id);
     }
 
-    public List<Produto> pessoas(){
+    public List<Produto> buscarProdutos() {
         Query query = em.createQuery("from Produto");
         return query.getResultList();
     }
 
-    public void remove(Long id){
+    public void remove(Long id) {
         Produto p = em.find(Produto.class, id);
         em.remove(p);
     }
 
-    public void update(Produto produto){
+    public void update(Produto produto) {
         em.merge(produto);
     }
 

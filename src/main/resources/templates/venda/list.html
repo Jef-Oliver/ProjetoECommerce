@@ -12,19 +12,17 @@
   <h1>Carrinho de compras</h1>
   <tr>
     <th>Id</th>
-    <th>Descrição</th>
+    <th>Data</th>
+    <th>Total</th>
   </tr>
   </thead>
-  <tr th:each="p : ${vendas}">
+  <tr th:each="v : ${vendas}">
 
-    <td th:text="${p.id}"></td>
-    <td th:text="${p.nome}"></td>
-    <td th:text="${p.data}"></td>
-
-    <td><a th:href="@{/produtos/edit/{id}(id=${p.id})}">Editar</a></td>
-    <td><a onclick="return window.confirm('Tem certeza que deseja excluir este registro?')"
-           th:href="@{/produtos/remove/{id}(id=${p.id})}">Excluir</a></td>
+    <td th:text="${v.id}"></td>
+    <td th:text="${v.data}"></td>
+    <td th:text="${v.totalVendas()}"></td>
   </tr>
 </table>
+<a th:href="@{/produtos/index}">Voltar para home</a>
 </body>
 </html>
