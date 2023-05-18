@@ -13,14 +13,15 @@ public class ItemVenda implements Serializable {
     private Long id;
     private double quantidade;
 
-    //indica as relações muitos-para-um com Produto e Venda
+    //indica que o atributo produto é uma chave estrangeira
     @OneToOne
     private Produto produto;
 
+    //indica que o atributo venda é uma chave estrangeira
     @ManyToOne
     private Venda venda;
 
-    double total(){
+    public double total(){
         return quantidade * produto.getValor();
     }
 

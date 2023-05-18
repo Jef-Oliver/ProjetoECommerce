@@ -18,7 +18,7 @@ public class ProdutosRepository {
         em.persist(produto);
     }
 
-    public Produto list(Long id) {
+    public Produto produto(Long id) {
         return em.find(Produto.class, id);
     }
 

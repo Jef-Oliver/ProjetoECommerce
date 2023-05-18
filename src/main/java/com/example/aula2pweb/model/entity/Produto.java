@@ -2,21 +2,20 @@ package com.example.aula2pweb.model.entity;
 
 import jakarta.persistence.*;
 import java.io.Serializable;
-import java.util.List;
 
 @Entity
 public class Produto implements Serializable {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Id
-    private int id;
+    private long id;
     private String descricao;
     private double valor;
 
-    public int getId() {
+    public long getId() {
         return id;
     }
 
-    public void setId(int id) {
+    public void setId(long id) {
         this.id = id;
     }
 
@@ -35,5 +34,4 @@ public class Produto implements Serializable {
     public void setValor(double valor) {
         this.valor = valor;
     }
-
 }

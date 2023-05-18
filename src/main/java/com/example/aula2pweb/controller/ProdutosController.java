@@ -19,10 +19,15 @@ public class ProdutosController {
     @Autowired
     ProdutosRepository repository;
 
-
+    //mapeamento para a tela inicial
     @GetMapping("/index")
     public String index(){
         return "produto/index";
+    }
+
+    @GetMapping("/form")
+    public String form(Produto produto){
+        return "produto/form";
     }
     @GetMapping("/list")
     public ModelAndView list(ModelMap model) {
@@ -43,7 +48,7 @@ public class ProdutosController {
 
     @GetMapping("/edit/{id}")
     public ModelAndView edit(@PathVariable("id") Long id, ModelMap model) {
-        model.addAttribute("produto", repository.list(id));
+        model.addAttribute("produto", repository.produto(id));
         return new ModelAndView("/produto/form", model);
     }
 

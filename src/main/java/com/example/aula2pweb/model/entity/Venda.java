@@ -1,11 +1,18 @@
 package com.example.aula2pweb.model.entity;
 
+import com.example.aula2pweb.controller.VendaController;
+import com.example.aula2pweb.model.entity.pessoas.Pessoa;
 import jakarta.persistence.*;
+import org.springframework.context.annotation.Scope;
+import org.springframework.stereotype.Component;
+
 import java.io.Serializable;
 import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
 
+@Scope("session")
+@Component
 @Entity
 public class Venda implements Serializable {
     @Id
@@ -13,8 +20,11 @@ public class Venda implements Serializable {
     private Long id;
     private LocalDate data = LocalDate.now();
 
-    @OneToMany(mappedBy = "venda", cascade = CascadeType.ALL)
+    @OneToMany(mappedBy = "venda", cascade = CascadeType.PERSIST)
     private List<ItemVenda> itensVendas = new ArrayList<ItemVenda>();
+
+    @ManyToOne
+    Pessoa pessoa;
 
     public double totalVendas(){
         double total = 0;
@@ -23,6 +33,7 @@ public class Venda implements Serializable {
         }
         return total;
     }
+
     public Long getId() {
         return id;
     }
@@ -39,12 +50,19 @@ public class Venda implements Serializable {
         this.data = data;
     }
 
-
-    public List<ItemVenda> getItens() {
+    public List<ItemVenda> getItensVendas() {
         return itensVendas;
     }
 
-    public void setItens(List<ItemVenda> itens) {
-        this.itensVendas = itens;
+    public void setItensVendas(List<ItemVenda> itensVendas) {
+        this.itensVendas = itensVendas;
+    }
+
+    public Pessoa getPessoa() {
+        return pessoa;
+    }
+
+    public void setPessoa(Pessoa pessoa) {
+        this.pessoa = pessoa;
     }
 }
