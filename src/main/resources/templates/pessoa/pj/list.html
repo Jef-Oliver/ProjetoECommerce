@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html th:replace="~{fragments/layout :: layout(~{::head},~{::main})}">
+<head th:replace="fragments/head :: head(~{})"></head>
+
+<body class="container">
+<nav th:replace="~{fragments/header::header}"></nav>
+<h1 style="padding:2.5em 0.5em 0.5em;" th:text="${titulo}"></h1>
+<hr>
+<br>
+<table class="table table-dark table-hover">
+    <thead>
+    <tr>
+        <th>ID PJ</th>
+        <th>Razão Social</th>
+        <th>Telefone</th>
+        <th>CNPJ</th>
+        <th>E-mail</th>
+        <th>Endereço</th>
+        <th>Editar</th>
+        <th>Remover</th>
+    </tr>
+    </thead>
+    <tr class="alert alert-warning" role="alert">
+        <td class="text-center display-6" colspan="8" th:if="${#lists.isEmpty(juridicas)}">
+            Não há pessoas jurídicas cadastradas!
+        </td>
+    </tr>
+    <tr th:each="j : ${juridicas}">
+        <td th:text="${j.id}"></td>
+        <td th:text="${j.nome}"></td>
+<!--        <td th:text="${j.telefone}"></td>-->
+<!--        <td th:text="${j.cnpj}"></td>-->
+<!--        <td th:text="${j.email}"></td>-->
+<!--        <td th:text="${j.enderecos}"></td>-->
+        <td>
+            <a class="btn btn-warning" th:href="@{/pj/edit/{id}(id=${j.id})}">Editar</a>
+        </td>
+        <td>
+            <a onclick="return window.confirm('Realmente deseja excluir esse registro?')"
+            <a class="btn btn-danger" th:href="@{/pj/remove/{id}(id=${j.id})}">Remover</a>
+        </td>
+    </tr>
+</table>
+<hr>
+<footer th:replace="~{fragments/footer::footer}"></footer>
+</body>
+</html>

@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html th:replace="~{fragments/layout :: layout(~{::head},~{::main})}">
+<head th:replace="fragments/head :: head(~{})">
+
+<body class="container">
+
+<main>
+
+    <h1 style="padding:2.5em 0.5em 0.5em;" th:text="${titulo}"></h1>
+    <hr><br>
+    <table class="table table-dark table-hover">
+        <thead>
+        <tr>
+            <th>ID PF</th>
+            <th>Nome</th>
+            <th>Telefone</th>
+            <th>CPF</th>
+            <th>E-mail</th>
+            <th>Endereço</th>
+            <th>Editar</th>
+            <th>Remover</th>
+        </tr>
+        </thead>
+        <tr class="alert alert-warning" role="alert">
+            <td class="text-center display-6" colspan="8" th:if="${#list.isEmpty(fisicas)}">
+                Não há pessoas físicas cadastradas!
+            </td>
+        </tr>
+        <tr th:each="f : ${fisicas}">
+            <td th:text="${f.id}"></td>
+            <td th:text="${f.nome}"></td>
+            <td th:text="${f.telefone}"></td>
+            <td th:text="${f.cpf}"></td>
+            <td th:text="${f.email}"></td>
+            <td th:text="${f.enderecos}"></td>
+            <td>
+                <a class="btn btn-warning" th:href="@{/pf/edit/{id}(id=${f.id})}">Editar</a>
+            </td>
+            <td>
+                <a onclick="return window.confirm('Realmente deseja excluir esse registro?')" <a
+                    class="btn btn-danger" th:href="@{/pf/remove/{id}(id=${f.id})}">Remover</a>
+            </td>
+        </tr>
+    </table>
+    <hr>
+
+</main>
+
+</body>
+
+</html>

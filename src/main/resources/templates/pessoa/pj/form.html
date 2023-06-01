@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html th:replace="~{fragments/layout :: layout(~{::head},~{::main})}">
+<head th:replace="fragments/head :: head(~{})">
+
+<body>
+<main class="">
+    <h1 style="padding:2.5em 0.5em 0.5em;" th:text="${titulo}"></h1>
+
+    <form class="container" th:action="${pessoaJuridica.id == null} ? @{/pj/save} : @{/pj/update}"
+          th:object="${pessoaJuridica}" method="post">
+        <input type="hidden" th:field="*{id}">
+        <label for="nome">Razão Social</label><br>
+        <input type="text" th:field="*{nome}" id="nome" autofocus><br>
+        <label for="cnpj">CNPJ</label><br>
+        <input type="text" th:field="*{cnpj}" id="cnpj"><br>
+        <label for="fone">Telefone</label><br>
+        <input type="text" th:field="*{telefone}" id="fone"><br>
+        <label for="email">Email</label><br>
+        <input type="text" th:field="*{email}" id="email"><br><br>
+        <div class="mb-2 col-lg-6">
+            <input type="submit" value="Enviar">
+        </div>
+    </form>
+</main>
+</body>
+<footer th:replace="fragments/footer :: footer"></footer>
+</html>

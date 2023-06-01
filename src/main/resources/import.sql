@@ -1,8 +1,8 @@
-INSERT INTO produto (descricao, valor) VALUES (1,'Blocos De Montar Lego Minecraft Casa Cogumelo Peças 272.', 197.00);
-INSERT INTO produto (descricao, valor) VALUES (2,'Dinossauro Emite Som e anda pela casa a noite. Presente Legal.', 89.00);
--- INSERT INTO produto (descricao, valor) VALUES ('Luva lança Teia do Homem Aranha ', 35.00);
--- INSERT INTO produto (descricao, valor) VALUES ('Cacto Dançante E Falante Toca Música Repete A Fala.', 46.00);
--- INSERT INTO produto (descricao, valor) VALUES ('Boneco Baby Yoda The Child Star Wars The Mandalorian.', 180.00);
+INSERT INTO produto (descricao, valor) VALUES ('Blocos De Montar Lego Minecraft Casa Cogumelo Peças 272.', 197.00);
+INSERT INTO produto (descricao, valor) VALUES ('Dinossauro Emite Som e anda pela casa a noite. Presente Legal.', 89.00);
+INSERT INTO produto (descricao, valor) VALUES ('Luva lança Teia do Homem Aranha ', 35.00);
+INSERT INTO produto (descricao, valor) VALUES ('Cacto Dançante E Falante Toca Música Repete A Fala.', 46.00);
+INSERT INTO produto (descricao, valor) VALUES ('Boneco Baby Yoda The Child Star Wars The Mandalorian.', 180.00);
 
 INSERT INTO pessoa (id,nome) VALUES (1,'Rafael');
 INSERT INTO pessoa (id,nome) VALUES (2,'Jeferson');

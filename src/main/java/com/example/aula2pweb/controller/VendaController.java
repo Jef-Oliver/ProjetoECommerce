@@ -3,8 +3,7 @@ package com.example.aula2pweb.controller;
 import com.example.aula2pweb.model.entity.ItemVenda;
 import com.example.aula2pweb.model.entity.Produto;
 import com.example.aula2pweb.model.entity.Venda;
-import com.example.aula2pweb.model.entity.pessoas.Pessoa;
-import com.example.aula2pweb.model.repository.PessoaRepository;
+import com.example.aula2pweb.model.repository.PessoaFisicaRepository;
 import com.example.aula2pweb.model.repository.ProdutosRepository;
 import com.example.aula2pweb.model.repository.VendaRepository;
 import jakarta.servlet.http.HttpSession;
@@ -35,7 +34,7 @@ public class VendaController {
     Venda venda;
 
     @Autowired
-    PessoaRepository pessoaRepository;
+    PessoaFisicaRepository pessoaFisicaRepository;
 
 
     @GetMapping("/list")
@@ -79,7 +78,7 @@ public class VendaController {
 
     @GetMapping("/finalizar")
     public String finalizar(HttpSession session) {
-        venda.setPessoa(pessoaRepository.pessoa(1L));
+        venda.setId(null);
         vendaRepository.save(venda);
         venda.getItensVendas().clear();
         session.invalidate();
