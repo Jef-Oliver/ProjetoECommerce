@@ -3,6 +3,7 @@
 <head th:replace="fragments/head :: head(~{})"></head>
 
 <body class="container">
+<main class="container">
 <nav th:replace="~{fragments/header::header}"></nav>
 <h1 style="padding:2.5em 0.5em 0.5em;" th:text="${titulo}"></h1>
 <hr>
@@ -15,7 +16,7 @@
         <th>Telefone</th>
         <th>CNPJ</th>
         <th>E-mail</th>
-        <th>Endereço</th>
+<!--        <th>Endereço</th>-->
         <th>Editar</th>
         <th>Remover</th>
     </tr>
@@ -28,9 +29,9 @@
     <tr th:each="j : ${juridicas}">
         <td th:text="${j.id}"></td>
         <td th:text="${j.nome}"></td>
-<!--        <td th:text="${j.telefone}"></td>-->
-<!--        <td th:text="${j.cnpj}"></td>-->
-<!--        <td th:text="${j.email}"></td>-->
+        <td th:text="${j.telefone}"></td>
+        <td th:text="${j.cnpj}"></td>
+        <td th:text="${j.email}"></td>
 <!--        <td th:text="${j.enderecos}"></td>-->
         <td>
             <a class="btn btn-warning" th:href="@{/pj/edit/{id}(id=${j.id})}">Editar</a>
@@ -42,6 +43,7 @@
     </tr>
 </table>
 <hr>
-<footer th:replace="~{fragments/footer::footer}"></footer>
+</main>
 </body>
+<footer th:replace="~{fragments/footer::footer}"></footer>
 </html>

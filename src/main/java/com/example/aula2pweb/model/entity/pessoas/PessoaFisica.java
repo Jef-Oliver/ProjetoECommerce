@@ -1,7 +1,6 @@
 package com.example.aula2pweb.model.entity.pessoas;
 
 import jakarta.persistence.Entity;
-import jakarta.persistence.Id;
 import jakarta.persistence.PrimaryKeyJoinColumn;
 
 @Entity

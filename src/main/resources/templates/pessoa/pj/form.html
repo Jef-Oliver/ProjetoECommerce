@@ -3,7 +3,7 @@
 <head th:replace="fragments/head :: head(~{})">
 
 <body>
-<main class="">
+<main class="container">
     <h1 style="padding:2.5em 0.5em 0.5em;" th:text="${titulo}"></h1>
 
     <form class="container" th:action="${pessoaJuridica.id == null} ? @{/pj/save} : @{/pj/update}"

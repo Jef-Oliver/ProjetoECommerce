@@ -10,6 +10,8 @@
         <h1>Produtos</h1>
         <tr th:align="center">
             <th scope="col">#</th>
+            <th scope="col">Data</th>
+            <th scope="col">Cliente</th>
             <th scope="col">Produto</th>
             <th scope="col">Quantidade</th>
         </tr>
@@ -17,6 +19,8 @@
         <tbody th:align="center">
         <tr th:each="i : ${venda.getItensVendas()}">
             <td th:text="${i.id}"></td>
+            <td th:text="${i.venda.data}"></td>
+            <td th:text="${i.venda.pessoa.nome}"></td>
             <td th:text="${i.produto.descricao}"></td>
             <td th:text="${i.quantidade}"></td>
         </tbody>

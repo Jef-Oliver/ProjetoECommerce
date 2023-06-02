@@ -7,27 +7,28 @@
 
 <main class="container py-3">
 
-  <table class="table" border="1">
-    <thead>
-    <h1>Lista de vendas</h1>
-    <tr>
-      <th>Id</th>
-      <th>Data</th>
-      <th>Total</th>
-      <th>Nome</th>
-      <th>Detalhar</th>
-    </thead>
-    <tr th:each="v : ${vendas}">
-      <td th:text="${v.id}"></td>
-      <td th:text="${v.data}"></td>
-      <td th:text="${v.totalVendas()}"></td>
-      <td th:text="${v.pessoa.nome}"></td>
-      <td>
-        <!--      botão para  buscar detalhes da venda-->
-        <a th:href="@{/vendas/detalhes/{id}(id=${v.id})}">
-          <button class="btn btn-primary">Detalhes</button>
-        </a>
-  </table>
+    <table class="table" border="1">
+        <thead>
+        <h1>Lista de vendas</h1>
+        <tr>
+            <th>Id</th>
+            <th>Data</th>
+            <th>Cliente</th>
+            <th>Total</th>
+            <th>Detalhar</th>
+        </thead>
+        <tr th:each="v : ${vendas}">
+            <td th:text="${v.id}"></td>
+            <td th:text="${v.data}"></td>
+            <td th:text="${v.getPessoa()}"></td>
+            <td th:text="${v.totalVendas()}"></td>
+
+            <td>
+                <!--      botão para  buscar detalhes da venda-->
+                <a th:href="@{/vendas/detalhes/{id}(id=${v.id})}">
+                    <button class="btn btn-primary">Detalhes</button>
+                </a>
+    </table>
 </main>
 </body>
 <footer th:replace="~{fragments/footer :: footer}"></footer>
