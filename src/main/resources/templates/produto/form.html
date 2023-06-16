@@ -4,8 +4,9 @@
 <head th:replace="fragments/head :: head(~{})">
 
 <body class="container">
-<main class="container py-5">
-    <div class="container text-light">
+<main class="container">
+    <h1 style="padding:2.5em 0.5em 0.5em;" th:text="${titulo}"></h1>
+    <div class="container flex-box">
         <h1>Cadastrar produto</h1>
         <form th:action="${produto.id == null} ? @{/produtos/save} : @{/produtos/update}" th:object="${produto}" method="post">
             <input type="hidden" th:field="*{id}"/>

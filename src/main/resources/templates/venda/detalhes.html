@@ -14,6 +14,7 @@
             <th scope="col">Cliente</th>
             <th scope="col">Produto</th>
             <th scope="col">Quantidade</th>
+            <th scope="col">Entrega</th>
         </tr>
         </thead>
         <tbody th:align="center">
@@ -23,6 +24,7 @@
             <td th:text="${i.venda.pessoa.nome}"></td>
             <td th:text="${i.produto.descricao}"></td>
             <td th:text="${i.quantidade}"></td>
+            <td th:text="${i.getVenda().getEndereco()}"></td>
         </tbody>
     </table>
 </main>

@@ -3,12 +3,12 @@
 <head th:replace="fragments/head :: head(~{})">
 
 <body class="container">
-
-<main>
+<main class="container">
 
     <h1 style="padding:2.5em 0.5em 0.5em;" th:text="${titulo}"></h1>
-    <hr><br>
-    <table class="table table-dark table-hover">
+
+    <hr>
+    <table class="table table-dark flex-box">
         <thead>
         <tr>
             <th>ID PF</th>
@@ -16,7 +16,7 @@
             <th>Telefone</th>
             <th>CPF</th>
             <th>E-mail</th>
-<!--            <th>Endereço</th>-->
+            <th>Endereço</th>
             <th>Editar</th>
             <th>Remover</th>
         </tr>
@@ -32,13 +32,13 @@
             <td th:text="${f.telefone}"></td>
             <td th:text="${f.cpf}"></td>
             <td th:text="${f.email}"></td>
-<!--            <td th:text="${f.enderecos}"></td>-->
+            <td th:text="${f.enderecos}"></td>
             <td>
                 <a class="btn btn-warning" th:href="@{/pf/edit/{id}(id=${f.id})}">Editar</a>
             </td>
             <td>
-                <a onclick="return window.confirm('Realmente deseja excluir esse registro?')"
-                    class="btn btn-danger" th:href="@{/pf/remove/{id}(id=${f.id})}">Remover</a>
+                <a onclick="return window.confirm('Deseja excluir mesmo?')"
+                   class="btn btn-danger" th:href="@{/pf/remove/{id}(id=${f.id})}">Remover</a>
             </td>
         </tr>
     </table>

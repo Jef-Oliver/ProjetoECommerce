@@ -1,11 +1,13 @@
 package com.example.aula2pweb.model.entity;
 
 import jakarta.persistence.*;
+import org.springframework.stereotype.Component;
 
 import java.io.Serializable;
-import java.math.BigDecimal;
+
 
 @Entity
+@Component
 public class ItemVenda implements Serializable {
 
     @Id

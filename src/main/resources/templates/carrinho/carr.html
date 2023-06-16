@@ -6,7 +6,7 @@
 <body class="container">
 <!--Colocar uma imagem de background-->
 
-<main class="container py-3">
+<main class="container py-3  ">
     <table class="table" border="1">
         <thead>
         <h1>Produtos</h1>
@@ -36,19 +36,99 @@
 
             </td>
         </tr>
-        <tr th:align="center">
-            <td colspan="4" class="text-end">Total</td>
-            <td th:text="${session.venda.totalVendas()}"></td>
-            <td>
-                <a th:href="@{/vendas/finalizar}">
-                    <button class="btn btn-success">Finalizar</button>
-                </a>
-            </td>
-        </tr>
+
         </tbody>
-
-
     </table>
+
+    <tr>
+        <td colspan="3">Valor Carrinho</td>
+        <td th:text="${#numbers.formatCurrency(session.venda.totalVendas())}" th:name="valor"
+            class="valor"></td>
+    </tr>
+    </table>
+
+    </form>
+
+    <!-- The Modal -->
+    <div class="modal" id="pessoasModal">
+        <form th:action="@{/vendas/cart}" th:object="${itemVenda}" method="post">
+
+            <div class="modal-dialog">
+                <div class="modal-content">
+
+                    <!-- Modal Header -->
+                    <div class="modal-header">
+                        <h4 class="modal-title text-white">Comprador</h4>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                    </div>
+
+                    <!-- Modal body -->
+                    <div class="modal-body">
+                        <div class="form-row">
+                            <table class="table table-dark table-hover">
+                                <thead>
+                                <tr>
+                                    <th>Nome</th>
+                                    <th>Selecionar</th>
+                                </tr>
+                                </thead>
+                                <tr th:each="p : ${pessoas}">
+                                    <td hidden="true" th:text="${p.id}"></td>
+                                    <td th:text="${p.nome}"></td>
+                                    <td>
+                                        <a class="btn bg-info
+                                                            " th:href="@{/vendas/cart/{id}(id=${p.id})}">Selecionar</a>
+                                    </td>
+                                </tr>
+                            </table>
+                        </div>
+                    </div>
+
+
+                </div>
+            </div>
+        </form>
+
+    </div>
+    <button type="button" class="btn btn-dark" data-bs-toggle="modal"
+            data-bs-target="#pessoasModal">Selecionar
+        comprador
+    </button>
+
+
+    <fieldset id="enderecopessoa">
+        <div class="container mt-3">
+            <h4>Endereços</h4>
+            <label class="form-label">Selecione um endereço:</label>
+            <table th:if="${session.venda.pessoa != null}" class="table table-dark table-hover">
+                <thead>
+                <tr>
+                    <th>Nome</th>
+                    <th>Selecionar</th>
+                </tr>
+                </thead>
+                <tr th:each="e : ${session.venda.pessoa.getEnderecos()}">
+                    <td hidden="true" th:text="${e.id}"></td>
+                    <td th:text="${e.logradouro}"></td>
+                    <td>
+                        <a class="btn btn-warning"
+                           th:href="@{/vendas/entregar/{id}(id=${e.id})}">Selecionar</a>
+                    </td>
+                </tr>
+            </table>
+        </div>
+        <hr>
+        <div th:if="${session.venda.endereco != null}">
+            <h4><label>Endereço do comprador:&nbsp;</label><span class="display-6"
+                                                                 th:text="${session.venda.endereco.getLogradouro()}"></span>
+            </h4>
+        </div>
+        <hr>
+    </fieldset>
+    <a type="button" class="btn btn-success mt-4" th:href="@{/vendas/finalizar}">Confirmar Compra
+    </a>
+    </div>
+    <br>
 </main>
 </body>
 <footer th:replace="~{fragments/footer :: footer}"></footer>

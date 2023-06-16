@@ -7,10 +7,11 @@
 
 <head th:replace="${head}"></head>
 
-<body class="d-flex flex-column min-vh-100">
+
+<body class="d-flex flex-column min-vh-100" style="background-image: url(/coringa.png); background-repeat: no-repeat; background-size: cover;">
 <header th:replace="fragments/header :: header"></header>
 
-<main th:replace="${main}"></main>
+<main th:replace="${main}" ></main>
 
 <footer th:replace="fragments/footer :: footer"></footer>
 </body>

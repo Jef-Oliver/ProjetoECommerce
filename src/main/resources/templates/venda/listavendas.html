@@ -20,7 +20,7 @@
         <tr th:each="v : ${vendas}">
             <td th:text="${v.id}"></td>
             <td th:text="${v.data}"></td>
-            <td th:text="${v.getPessoa()}"></td>
+            <td th:text="${v.getPessoa().getNome()}"></td>
             <td th:text="${v.totalVendas()}"></td>
 
             <td>

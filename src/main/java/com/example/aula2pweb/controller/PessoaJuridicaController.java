@@ -59,7 +59,7 @@ public class PessoaJuridicaController {
     @GetMapping("/edit/{id}")
     public ModelAndView edit(@PathVariable("id") Long id, ModelMap model)
     {
-        model.addAttribute("pessoa", pessoaJuridicaRepository.pessoaJuridica(id));
+        model.addAttribute("pessoaJuridica", pessoaJuridicaRepository.pessoaJuridica(id));
         return new ModelAndView("/pessoa/pj/form", model);
     }
 
