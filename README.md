@@ -18,3 +18,6 @@ Carrinho de compras
   <br>
 Login
 </div
+
+# Link do projeto no LinkedIn
+- https://www.linkedin.com/posts/activity-7082051788572364800-My9f?utm_source=share&utm_medium=member_desktop
